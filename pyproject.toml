@@ -17,4 +17,3 @@ dev = [
 
 [tool.mypy]
 strict = true
-plugins = ["pydantic.mypy"]
