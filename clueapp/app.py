@@ -2,11 +2,21 @@ import textual.app as txa
 import textual.binding as txb
 import textual.widgets as txw
 
-from .utils import logger
-from .widgets import Clue, PasswordLock
+from clueapp.widgets import Clue
 
 
 class ClueApp(txa.App[int]):
+    def __init__(
+        self,
+        case_title: str,
+        case_subtitle: str,
+        *clues: Clue,
+    ) -> None:
+        super().__init__()
+        self.title = case_title
+        self.sub_title = case_subtitle
+        self.clues = clues
+
     BINDINGS = [
         txb.Binding("down", "focus_next", description="Focus Next"),
         txb.Binding("up", "focus_previous", description="Focus Prevous"),
@@ -14,22 +24,5 @@ class ClueApp(txa.App[int]):
 
     def compose(self) -> txa.ComposeResult:
         yield txw.Header(show_clock=True, icon="")
-        yield Clue(
-            "clue 2",
-            txw.Label("CONTENTS"),
-        )
-
-        yield Clue(
-            "clue 1",
-            txw.Label("SECRET CONTENTS"),
-            PasswordLock("asdf"),
-        )
-        yield logger
+        yield from self.clues
         yield txw.Footer()
-
-
-if __name__ == "__main__":
-    app = ClueApp()
-    app.title = "Test Name"
-    app.sub_title = "Test"
-    app.run()
