@@ -17,7 +17,7 @@ class UnlockedLock(Lock):
 
 
 class PasswordLock(Lock):
-    show_invalid_pwd_msg = txr.reactive(False)
+    invalid_password_entered = txr.reactive(False)
 
     def __init__(self, password: str):
         super().__init__()
@@ -25,21 +25,19 @@ class PasswordLock(Lock):
 
     def compose(self) -> txa.ComposeResult:
         yield txw.Input(placeholder="enter password", password=True)
+        yield txw.Label("Invalid password", classes="hidden")
 
-    def watch_show_invalid_pwd_msg(self, show: bool) -> None:
-        logger.info(f"show invalid password message {show=}")
-        if show:
-            self.mount(txw.Label("Invalid password", id="invalid-pwd-msg"))
-        else:
-            self.query("#invalid-pwd-msg").remove()
+    def watch_invalid_password_entered(self) -> None:
+        is_hidden = not self.invalid_password_entered
+        self.query_exactly_one(txw.Label).set_class(is_hidden, "hidden")
 
     @tx.on(txw.Input.Submitted)
     def enter_password(self, event: txw.Input.Submitted) -> None:
         if event.value == self.password:
             logger.info("correct password entered")
             self.is_locked = False
-            self.show_invalid_pwd_msg = False
+            self.invalid_password_entered = False
         else:
             logger.info("invalid password entered")
-            self.show_invalid_pwd_msg = True
+            self.invalid_password_entered = True
         event.input.value = ""

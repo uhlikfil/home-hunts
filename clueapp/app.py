@@ -1,3 +1,5 @@
+import pathlib
+
 import textual.app as txa
 import textual.binding as txb
 import textual.widgets as txw
@@ -6,6 +8,8 @@ from clueapp.widgets import Clue
 
 
 class ClueApp(txa.App[int]):
+    CSS_PATH = pathlib.Path(__file__).parent / "styles.tcss"
+
     def __init__(
         self,
         case_title: str,
