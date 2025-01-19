@@ -1,0 +1,35 @@
+.sidebar {
+    width: 20%;
+    height: 100%;
+    border-left: tall $primary;
+    padding: 0 3;
+}
+
+.description {
+    width: 50%;
+    text-align: center;
+    padding-top: 1;
+    padding-bottom: 2;
+}
+
+Collapsible {
+    border: none;
+    padding: 0 1;
+
+    & Contents {
+        padding: 0 3;
+    }
+}
+
+Input {
+    padding: 0 1;
+    border: wide $primary;
+
+    &.error {
+        border: wide $error
+    }
+}
+
+.hidden {
+    display: none;
+}

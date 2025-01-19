@@ -25,11 +25,9 @@ class PasswordLock(Lock):
 
     def compose(self) -> txa.ComposeResult:
         yield txw.Input(placeholder="enter password", password=True)
-        yield txw.Label("Invalid password", classes="hidden")
 
-    def watch_invalid_password_entered(self) -> None:
-        is_hidden = not self.invalid_password_entered
-        self.query_exactly_one(txw.Label).set_class(is_hidden, "hidden")
+    def watch_invalid_password_entered(self, is_invalid: bool) -> None:
+        self.query_exactly_one(txw.Input).set_class(is_invalid, "error")
 
     @tx.on(txw.Input.Submitted)
     def enter_password(self, event: txw.Input.Submitted) -> None:

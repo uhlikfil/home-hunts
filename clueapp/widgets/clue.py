@@ -4,7 +4,7 @@ import textual.app as txa
 import textual.widget
 import textual.widgets as txw
 
-from clueapp.widgets.lock import Lock, UnlockedLock
+from .lock import Lock, UnlockedLock
 
 logger = logging.getLogger(__name__)
 
