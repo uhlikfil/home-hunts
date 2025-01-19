@@ -1,6 +1,7 @@
 import logging
 
 import textual.app as txa
+import textual.containers as txc
 import textual.widget
 import textual.widgets as txw
 
@@ -18,7 +19,7 @@ class Clue(txw.Static):
     ):
         super().__init__()
         self.clue_name = clue_name
-        self.clue_contents = clue_contents
+        self.clue_contents = txc.VerticalGroup(clue_contents, classes="m-y")
         self.clue_lock = clue_lock
 
     def compose(self) -> txa.ComposeResult:

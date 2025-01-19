@@ -1,5 +1,5 @@
 .sidebar {
-    width: 20%;
+    width: 30%;
     height: 100%;
     border-left: tall $primary;
     padding: 0 3;
@@ -8,8 +8,7 @@
 .description {
     width: 50%;
     text-align: center;
-    padding-top: 1;
-    padding-bottom: 2;
+    padding: 1 0;
 }
 
 Collapsible {
@@ -28,6 +27,14 @@ Input {
     &.error {
         border: wide $error
     }
+}
+
+.m-y {
+    margin: 1 0;
+}
+
+TextWithFile Static {
+    width: 70%;
 }
 
 .hidden {

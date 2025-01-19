@@ -25,8 +25,8 @@ class ClueApp(txa.App[int]):
         self.clues = clues
 
     BINDINGS = [
-        txb.Binding("down", "focus_next", description="Focus Next"),
-        txb.Binding("up", "focus_previous", description="Focus Prevous"),
+        txb.Binding("down", "focus_next", description="Focus Next", priority=True),
+        txb.Binding("up", "focus_previous", description="Focus Prevous", priority=True),
     ]
 
     def compose(self) -> txa.ComposeResult:
@@ -34,7 +34,7 @@ class ClueApp(txa.App[int]):
         with txc.Horizontal():
             with txc.VerticalScroll():
                 with txc.Center():
-                    yield txw.Static(self.description, classes="description")
+                    yield txw.Label(self.description, classes="description")
                 yield from self.clues
             yield Matrix(classes="sidebar")
         yield txw.Footer()

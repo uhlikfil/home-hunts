@@ -4,7 +4,7 @@ import textual.logging as txl
 import textual.widgets as txw
 
 from .app import ClueApp
-from .widgets import Clue, PasswordLock
+from .widgets import Clue, PasswordLock, TextWithFile
 
 
 def configure_logger() -> None:
@@ -22,11 +22,14 @@ def create_app() -> ClueApp:
         "XXX",
         "This is a test This is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a test",
         Clue(
-            "clue 2",
-            txw.Label("CONTENTS"),
+            "AAA asd",
+            TextWithFile(
+                "ASDF 7 EGIAIASDF EGIAIASDF EGIAIASDF EGIAIASDF EGIAIASDF EGIAI AIOGSIOFASDF ASDF EGIAI AIOGSIOFASDF ASDF EGIAI AIOGSIOFASDF ASDF EGIAI AIOGSIOFASDF ASDF EGIAI AIOGSIOFASDF ASDF EGIAI AIOGSIOFASDF ASDF EGIAI AIOGSIOF",
+                "clueapp/resources/games/demo/road.jpg",
+            ),
         ),
         Clue(
-            "clue 1",
+            "BBBBB hello",
             txw.Label("SECRET CONTENTS"),
             PasswordLock("motherlode"),
         ),
