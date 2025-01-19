@@ -20,7 +20,7 @@ def create_app() -> ClueApp:
     return ClueApp(
         "Test",
         "XXX",
-        "This is a test This is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a testThis is a test",
+        None,
         Clue(
             "AAA asd",
             TextWithFile(

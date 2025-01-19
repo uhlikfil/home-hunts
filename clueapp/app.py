@@ -16,13 +16,17 @@ class ClueApp(txa.App[int]):
         self,
         case_title: str,
         case_subtitle: str,
-        description: str,
+        case_description: str | None,
         *clues: Clue,
     ):
         super().__init__()
         self.title = case_title
         self.sub_title = case_subtitle
-        self.description = description
+        self.description = (
+            txc.Center(txw.Label(case_description, classes="description"))
+            if case_description
+            else txw.Static(classes="hidden")
+        )
         self.clues = clues
 
     BINDINGS = [
@@ -32,10 +36,9 @@ class ClueApp(txa.App[int]):
 
     def compose(self) -> txa.ComposeResult:
         yield txw.Header(show_clock=True, icon="")
-        with txc.Horizontal():
+        with txc.HorizontalGroup():
             with txc.VerticalScroll():
-                with txc.Center():
-                    yield txw.Label(self.description, classes="description")
+                yield self.description
                 yield from self.clues
             yield Matrix(classes="sidebar")
         yield txw.Footer()
