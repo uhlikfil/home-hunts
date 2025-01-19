@@ -1,15 +1,16 @@
+import pathlib
+
 import textual.app as txa
 import textual.binding as txb
 import textual.containers as txc
 import textual.widgets as txw
 
-from .config import RESOURCES_DIR
 from .theme import hacker_theme
 from .widgets import Clue, Matrix
 
 
 class ClueApp(txa.App[int]):
-    CSS_PATH = RESOURCES_DIR / "styles.tcss"
+    CSS_PATH = pathlib.Path(__file__).parent / "resources/styles.tcss"
 
     def __init__(
         self,

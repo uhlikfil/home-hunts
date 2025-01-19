@@ -1,6 +1,6 @@
-import textual.theme as txtheme
+import textual.theme
 
-hacker_theme = txtheme.Theme(
+hacker_theme = textual.theme.Theme(
     name="hacker",
     primary="#00DD00",
     secondary="#CCCC00",

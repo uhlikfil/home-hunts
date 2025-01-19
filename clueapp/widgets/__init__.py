@@ -1,5 +1,5 @@
 from .clue import Clue
-from .lock import PasswordLock
+from .lock import PasswordLock, UnlockedLock
 from .matrix import Matrix
 from .text_with_file import TextWithFile
 
@@ -8,4 +8,5 @@ __all__ = (
     "Matrix",
     "PasswordLock",
     "TextWithFile",
+    "UnlockedLock",
 )
