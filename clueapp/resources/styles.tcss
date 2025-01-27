@@ -20,6 +20,11 @@ Collapsible {
     }
 }
 
+Markdown {
+    background: transparent;
+    padding: 0;
+}
+
 Input {
     padding: 0 1;
     border: wide $primary;
@@ -33,7 +38,7 @@ Input {
     margin: 1 0;
 }
 
-TextWithFile Static {
+TextWithFile Markdown {
     width: 70%;
 }
 

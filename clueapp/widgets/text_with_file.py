@@ -24,7 +24,7 @@ class TextWithFile(txw.Static):
 
     def compose(self) -> txa.ComposeResult:
         with txc.HorizontalGroup():
-            yield txw.Static(self.text)
+            yield txw.Markdown(self.text)
             with txc.Right():
                 yield txw.Button("Open File", "primary")
 

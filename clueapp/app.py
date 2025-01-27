@@ -15,13 +15,13 @@ class ClueApp(txa.App[int]):
     def __init__(
         self,
         case_title: str,
-        case_subtitle: str,
+        case_subtitle: str | None,
         case_description: str | None,
         *clues: Clue,
     ):
         super().__init__()
         self.title = case_title
-        self.sub_title = case_subtitle
+        self.sub_title = case_subtitle if case_subtitle else ""
         self.description = (
             txc.Center(txw.Label(case_description, classes="description"))
             if case_description

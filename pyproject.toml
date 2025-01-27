@@ -5,11 +5,18 @@ description = "Homemade treasure hunts and escape rooms."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+ "pydantic>=2.10.5",
+ "pyyaml>=6.0.2",
  "textual>=1.0.0",
 ]
 
 [dependency-groups]
-dev = ["mypy>=1.14.1", "ruff>=0.9.0", "textual-dev>=1.7.0"]
+dev = [
+    "mypy>=1.14.1",
+ "ruff>=0.9.0",
+ "textual-dev>=1.7.0",
+ "types-pyyaml>=6.0.12.20241230",
+]
 
 [tool.mypy]
 strict = true

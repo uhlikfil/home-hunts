@@ -1,0 +1,19 @@
+title: A simple hunt
+subtitle: Secret road
+description: >
+  There is a mysterous road that leads somewhere.
+  To find it, unlock the clues and head out. There
+  might be something great out there! Or there might
+  not be anything at all. Who knows?
+clues:
+  - name: Start
+    contents: >
+      The first clue is for free. It will help you unlock
+      the second one if you're *careful* and smart!
+  - name: The Road
+    contents: >
+      This is the road. It's downloaded from
+      [wikipedia](https://en.wikipedia.org/wiki/Forest_track#).
+      There's probably nothing interesting.
+    file_path: road.jpg
+    password: careful
